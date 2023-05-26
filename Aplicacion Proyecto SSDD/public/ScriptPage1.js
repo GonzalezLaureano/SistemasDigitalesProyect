@@ -1,3 +1,4 @@
+
 var inputContrasena = document.getElementById("inputContrasena");
 inputContrasena.addEventListener("input", habilitarBoton);
 function habilitarBoton() {
@@ -9,4 +10,10 @@ function habilitarBoton() {
       document.getElementById("btnConfiguracion").disabled = true;
     }
   }
-  
+  document.addEventListener('DOMContentLoaded', function() {
+    var btnConfiguracion = document.getElementById('btnConfiguracion');
+    btnConfiguracion.addEventListener('click', function() {
+    // Redirige a otra página HTML
+    window.location.href = 'configuration.html';
+    });
+});

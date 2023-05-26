@@ -1,19 +1,16 @@
 #include <Arduino.h>
-//holaaaaaa.
-//committee.
-// put function declarations here:
-int myFunction(int, int);
-
+#include <WifiEsp8266.h>
+#include <FirebaseConfiguration.h>
+float pesoCinta1=34.67;
+char ubicacionPesoCinta1[]="/ProyectoSistemasDigitales/Variables/Cinta1/Peso";
 void setup() {
-  // put your setup code here, to run once:
-  int result = myFunction(2, 3);
+  WifiConnect();
+  FirebaseInit();
 }
 
 void loop() {
+  envioDatoFirebase(ubicacionPesoCinta1,pesoCinta1);
+  delay(2000);
+  yield();
   // put your main code here, to run repeatedly:
-}
-
-// put function definitions here:
-int myFunction(int x, int y) {
-  return x + y;
 }
