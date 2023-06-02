@@ -12,10 +12,9 @@ const firebaseConfig = {
   const app = firebase.initializeApp(firebaseConfig);
   // Obtiene una referencia a la ubicación de la base de datos que deseas leer
   var database = firebase.database();
-  var ref = database.ref('/ProyectoSistemasDigitales/Variables/Cinta1/Peso'); // Reemplaza 'ruta/a/tu/dato' con la ruta correcta en tu base de datos
-
+  var PesoCinta1 = database.ref('/ProyectoSistemasDigitales/Variables/Cinta1/Peso'); // Reemplaza 'ruta/a/tu/dato' con la ruta correcta en tu base de datos
   // Lee los datos de Firebase
-  ref.on('value', function(snapshot) {
+  PesoCinta1.on('value', function(snapshot) {
     var data = snapshot.val(); // Obtiene el valor del snapshot
     // Actualiza el contenido del elemento en HTML con los datos recuperados
     var dataContainer = document.getElementById('data-container');
