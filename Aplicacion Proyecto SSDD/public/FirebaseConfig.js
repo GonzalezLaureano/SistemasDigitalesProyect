@@ -7,7 +7,6 @@ const firebaseConfig = {
     messagingSenderId: "932015706452",
     appId: "1:932015706452:web:6933d442f8cb8167aff8c1"
   };
-
   // Initialize Firebase
   const app = firebase.initializeApp(firebaseConfig);
   // Obtiene una referencia a la ubicación de la base de datos que deseas leer
