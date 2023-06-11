@@ -1,3 +1,9 @@
+/*
+  Para que funcione la sincronizacion, hay que añadir
+  la libreria de firebase en el documento .html
+  luego hay que agregar en el documento.html los documentos .js de firebase
+  y luego es copiar y pegar los codigos para leer desde firebase o sino para enviar a firebase.
+*/
 //definimos de a donde extraemos el dato a leer.
 var prueba = database.ref('/ProyectoSistemasDigitales/Elementos/prueba viernes/1'); // Reemplaza 'ruta/a/tu/dato' con la ruta correcta en tu base de datos
   // Lee los datos de Firebase
