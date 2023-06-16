@@ -13,3 +13,4 @@ var prueba = database.ref('/ProyectoSistemasDigitales/Elementos/prueba viernes/1
     var dataContainer = document.getElementById('f1c1');//establecemos a donde vamos a mostrar el dato guardado en firebase
     dataContainer.innerHTML = 'Dato almacenado en Firebase: ' + data;//esto se muestra en el html
   });
+  
