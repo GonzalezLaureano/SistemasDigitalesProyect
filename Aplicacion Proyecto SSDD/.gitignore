@@ -64,4 +64,4 @@ node_modules/
 
 # dotenv environment variables file
 .env
-include/FirebaseConfig.js
+include/public/FirebaseConfig.js
