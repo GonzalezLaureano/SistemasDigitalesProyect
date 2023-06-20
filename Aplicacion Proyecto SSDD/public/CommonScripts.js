@@ -1,8 +1,8 @@
 document.addEventListener('DOMContentLoaded', function() {
-    var btnVariables = document.getElementById('btnVariables');
-    btnVariables.addEventListener('click', function() {
+    var btnProceso = document.getElementById('btnProceso');
+    btnProceso.addEventListener('click', function() {
     // Redirige a otra página HTML
-    window.location.href = 'variables.html';
+    window.location.href = 'proceso.html';
     });
 });
 document.addEventListener('DOMContentLoaded', function() {

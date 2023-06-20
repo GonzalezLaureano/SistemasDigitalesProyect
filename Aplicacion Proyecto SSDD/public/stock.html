@@ -18,12 +18,50 @@
     <br>
     <div class="btn-group d-flex justify-content-center" role="group" aria-label="Basic mixed styles example">
         <button type="button" class="btn" id="btnInicio">Inicio</button>
-        <button type="button" class="btn" id="btnVariables">Variables</button>
+        <button type="button" class="btn" id="btnProceso">Proceso</button>
         <button type="button" class="btn" id="btnStock">Stock</button>
     </div>
-    <h1>
-        Stock.
-    </h1>
+    <h1>Stock.</h1>
+    <div class="container">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Encabezado 1</th>
+              <th>Encabezado 2</th>
+              <th>Encabezado 3</th>
+              <th>Encabezado 4</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <div id="f1c1"></div>
+              </td>
+              <td>Fila 1, Columna 2</td>
+              <td>Fila 1, Columna 3</td>
+              <td>Fila 1, Columna 4</td>
+            </tr>
+            <tr>
+              <td>Fila 2, Columna 1</td>
+              <td>Fila 2, Columna 2</td>
+              <td>Fila 2, Columna 3</td>
+              <td>Fila 2, Columna 4</td>
+            </tr>
+            <tr>
+              <td>Fila 3, Columna 1</td>
+              <td>Fila 3, Columna 2</td>
+              <td>Fila 3, Columna 3</td>
+              <td>Fila 3, Columna 4</td>
+            </tr>
+            <tr>
+              <td>Fila 4, Columna 1</td>
+              <td>Fila 4, Columna 2</td>
+              <td>Fila 4, Columna 3</td>
+              <td>Fila 4, Columna 4</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     <div class="text-center">
         <h2>Nuevo Elemento Ingresado:</h2>
         <!-- Parte para generar QR -->
@@ -32,8 +70,6 @@
         <br>
         <div id="codigoQR">Codigo QR.</div>
     </div>
-    
-
     <!-- Dejar lo siguiente para el final -->
     <!-- Incluimos el archivo para conectarnos a FireBase -->
     <script src="FirebaseConfig.js"></script>
