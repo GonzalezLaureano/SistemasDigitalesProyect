@@ -16,6 +16,17 @@ body {
     margin: 0 5px;
   }
 
+  .btnCirujia {
+    background-color: #343a40;
+    color: #fff;
+    border-color: #1e2d3d;
+    border-width: 2px;
+    font-size: 10px;
+    padding: 5px 10px;
+    margin: 0 5px;
+  }
+
+
   .btn:hover,
   .btn:focus {
     background-color: #566a7c;
