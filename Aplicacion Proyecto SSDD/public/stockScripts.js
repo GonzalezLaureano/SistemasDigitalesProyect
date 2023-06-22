@@ -56,23 +56,24 @@ function ObtenerDocumentos() {
       var textoTamaño = document.createTextNode(tamaño);
       celdaTamaño.appendChild(textoTamaño);
 
-      var celdaCirujias = document.createElement("td");
-      var botonCirujias = document.createElement("button");
-      botonCirujias.innerHTML = "Ver cirujias";
-      botonCirujias.id = key; 
-      botonCirujias.className="btnCirujia"
-      celdaCirujias.appendChild(botonCirujias);
-
+      var celdaCirugias = document.createElement("td");
+      var botonCirugias = document.createElement("button");
+      botonCirugias.innerHTML = "Ver cirugias";
+      botonCirugias.id = key; 
+      botonCirugias.className="btnCirugia";
+      celdaCirugias.appendChild(botonCirugias);
+      botonCirugias.addEventListener("click", function() {
+        window.location.href = "cirugias.html";
+      });
 
       hilera.appendChild(celdaId);
       hilera.appendChild(celdaFecha);
       hilera.appendChild(celdaInstrumento);
       hilera.appendChild(celdaTamaño);
-      hilera.appendChild(celdaCirujias);
+      hilera.appendChild(celdaCirugias);
       tblBody.appendChild(hilera);
     }
     });
 }
 
-
-ObtenerDocumentos()
+ObtenerDocumentos();

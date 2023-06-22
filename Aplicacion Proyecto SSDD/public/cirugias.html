@@ -22,7 +22,7 @@
         <button type="button" class="btn" id="btnStock">Stock</button>
     </div>
     <h1>
-        Stock.
+        Historial de cirugias.
     </h1>
 
     <!-- Aca va donde se muestran las variables -->
@@ -31,9 +31,10 @@
           <thead>
             <tr>
               <th>ID</th>
+              <th>Descripcion</th>
+              <th>Doctor</th>
+              <th>Enfermera</th>
               <th>Fecha</th>
-              <th>Instrumento</th>
-              <th>Tamaño (cm)</th>
             </tr>
           </thead>
           <tbody 
@@ -43,24 +44,13 @@
       </div>
 
 
-    <div class="text-center">
-        <h2>Nuevo Elemento Ingresado:</h2>
-        <!-- Parte para generar QR -->
-        <div id="NuevoElementoFirebase">Dato Obtenido desde Firebase</div>
-        <button onclick="generarQR()" class="btn">Generar QR</button>
-        <br>
-        <div id="codigoQR">Codigo QR.</div>
-    </div>
-    
-
     <!-- Dejar lo siguiente para el final -->
     <!-- Incluimos el archivo para conectarnos a FireBase -->
     <script src="FirebaseConfig.js"></script>
     <!-- incluimos nuestro JavaScripts -->
     <script src="CommonScripts.js"></script>
-    <script src="stockScripts.js"></script>
+    <script src="cirugias.js"></script>
     <!-- Incluimos Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
 </body>
 </html>
-
