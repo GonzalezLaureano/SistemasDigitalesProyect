@@ -63,7 +63,7 @@ function ObtenerDocumentos() {
       botonCirugias.className="btnCirugia";
       celdaCirugias.appendChild(botonCirugias);
       botonCirugias.addEventListener("click", function() {
-        window.location.href = "cirugias.html";
+        window.location.href = "cirugias.html"+"#"+key;
       });
 
       hilera.appendChild(celdaId);
