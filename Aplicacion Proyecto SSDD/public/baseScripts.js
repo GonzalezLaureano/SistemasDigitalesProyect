@@ -1,5 +1,5 @@
 var data;
-var NuevoElemento = database.ref('/ProyectoSistemasDigitales/Esterilizado'); // Reemplaza 'ruta/a/tu/dato' con la ruta correcta en tu base de datos
+var NuevoElemento = database.ref('/ProyectoSistemasDigitales/Elementos/Nuevo Elemento'); // Reemplaza 'ruta/a/tu/dato' con la ruta correcta en tu base de datos
 
 // Lee los datos de Firebase
 NuevoElemento.on('value', function(snapshot) {
@@ -8,10 +8,22 @@ NuevoElemento.on('value', function(snapshot) {
   var NuevoElementoFirebase = document.getElementById('NuevoElementoFirebase');
   NuevoElementoFirebase.innerHTML = 'Id Elemento ingresado: ' + data;
 });
+function generarQR() {
+    var texto = data;
+    var divCodigoQR = document.getElementById("codigoQR");
+    // Limpiar el contenido del div
+    divCodigoQR.innerHTML = "";
+    // Generar el código QR
+    var qrcode = new QRCode(divCodigoQR, {
+      text: texto,
+      width: 128,
+      height: 128
+    });
+}
 
 function ObtenerDocumentos() {
  // var elementosRef = database.collection("ProyectoSistemasDigitales").doc("Elementos").get();
-  var elementosRef = database.ref('/ProyectoSistemasDigitales/Esterilizado')
+  var elementosRef = database.ref('/ProyectoSistemasDigitales/Elementos')
 
   //const obtenerTodosDocumentos = await firebase.getDocs(collection(database, "ProyectoSistemasDigitales"));
   elementosRef.on('value', (snapshot) => {

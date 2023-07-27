@@ -2,12 +2,12 @@ var url = window.location.href;
 var codigo = url.substr(-5);
 codigo.toString();
 console.log(codigo);
-
+debugger;
 
 function ObtenerDocumentos2() {
-   var elementosRef = database.ref('/ProyectoSistemasDigitales/Cirugias')
+   var elementosRef = database.ref('/ProyectoSistemasDigitales/Cirugias').orderByChild('ID').equalTo(codigo);
  
-   elementosRef.on('value', (snapshot) => {
+   elementosRef.on('value',(snapshot) => {
      const docs = snapshot.val();
      console.log(docs)
 
@@ -17,8 +17,8 @@ function ObtenerDocumentos2() {
        var iden = iden.replace(/"/g, '');
        console.log(iden)
 
-      if (iden == codigo) {
-       console.log("entro")
+      // if (iden == codigo) {
+      //  console.log("entro")
        var tblBody = document.getElementById("tbody2");
  
        var hilera = document.createElement("tr");
@@ -52,7 +52,7 @@ function ObtenerDocumentos2() {
        hilera.appendChild(celdaEnfermera);
        hilera.appendChild(celdaFecha);       
        tblBody.appendChild(hilera);
-      }
+      // }
      }
    })
  }
