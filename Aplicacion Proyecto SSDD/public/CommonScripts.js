@@ -13,6 +13,13 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 document.addEventListener('DOMContentLoaded', function() {
+    var btnStock = document.getElementById('btnProceso');
+    btnStock.addEventListener('click', function() {
+    // Redirige a otra página HTML
+    window.location.href = 'proceso.html';
+    });
+});
+document.addEventListener('DOMContentLoaded', function() {
     var btnStock = document.getElementById('btnBase');
     btnStock.addEventListener('click', function() {
     // Redirige a otra página HTML
