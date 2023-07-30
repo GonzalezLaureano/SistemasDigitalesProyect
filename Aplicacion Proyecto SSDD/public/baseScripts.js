@@ -1,12 +1,11 @@
 var data;
-var NuevoElemento = database.ref('/ProyectoSistemasDigitales/Elementos/Nuevo Elemento'); // Reemplaza 'ruta/a/tu/dato' con la ruta correcta en tu base de datos
-
+var NuevoElemento = database.ref('/ProyectoSistemasDigitales/Elementos/GenerarQR/ID'); // Reemplaza 'ruta/a/tu/dato' con la ruta correcta en tu base de datos
 // Lee los datos de Firebase
 NuevoElemento.on('value', function(snapshot) {
   data = snapshot.val(); // Obtiene el valor del snapshot
   // Actualiza el contenido del elemento en HTML con los datos recuperados
   var NuevoElementoFirebase = document.getElementById('NuevoElementoFirebase');
-  NuevoElementoFirebase.innerHTML = 'Id Elemento ingresado: ' + data;
+  NuevoElementoFirebase.innerHTML = 'ID del elemento ingresado: ' + data;
 });
 function generarQR() {
     var texto = data;
@@ -15,9 +14,9 @@ function generarQR() {
     divCodigoQR.innerHTML = "";
     // Generar el código QR
     var qrcode = new QRCode(divCodigoQR, {
-      text: texto,
+      text: data,
       width: 128,
-      height: 128
+      height: 128,
     });
 }
 
@@ -28,8 +27,11 @@ function ObtenerDocumentos() {
   //const obtenerTodosDocumentos = await firebase.getDocs(collection(database, "ProyectoSistemasDigitales"));
   elementosRef.on('value', (snapshot) => {
     const docs = snapshot.val();
-    console.log(docs)
+
     for (const key in docs) {
+      var prueba=docs[key].ID
+      console.log(prueba)
+
       var tblBody = document.getElementById("tbody1");
 
       var hilera = document.createElement("tr");
@@ -72,13 +74,16 @@ function ObtenerDocumentos() {
         window.location.href = "cirugias.html"+"#"+key;
       });
 
-      hilera.appendChild(celdaId);
-      hilera.appendChild(celdaFecha);
-      hilera.appendChild(celdaInstrumento);
-      hilera.appendChild(celdaTamaño);
-      hilera.appendChild(celdaPeso);
-      hilera.appendChild(celdaCirugias);
-      tblBody.appendChild(hilera);
+
+      if (docs[key].ID==null) {
+        hilera.appendChild(celdaId);
+        hilera.appendChild(celdaFecha);
+        hilera.appendChild(celdaInstrumento);
+        hilera.appendChild(celdaTamaño);
+        hilera.appendChild(celdaPeso);
+        hilera.appendChild(celdaCirugias);
+        tblBody.appendChild(hilera);
+      }
     }
     });
 }
