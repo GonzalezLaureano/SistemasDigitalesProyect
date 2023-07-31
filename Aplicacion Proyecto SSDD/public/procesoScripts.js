@@ -4,6 +4,7 @@
    
      //const obtenerTodosDocumentos = await firebase.getDocs(collection(database, "ProyectoSistemasDigitales"));
      elementosRef.on('value', (snapshot) => {
+      elminarListaEspera();
        const docs = snapshot.val();
        console.log(docs)
        for (const key in docs) {
@@ -28,6 +29,16 @@
        });
    }
    
+   function elminarListaEspera(){
+    const tbody = document.getElementById('tbodyLista');
+
+    // Elimina todas las filas del tbody
+    while (tbody.firstChild) {
+    tbody.removeChild(tbody.firstChild);
+    }
+   }
+
+
    ObtenerDocumentos();
 
    function ObtenerDocumentos2() {
@@ -86,6 +97,7 @@
    
      //const obtenerTodosDocumentos = await firebase.getDocs(collection(database, "ProyectoSistemasDigitales"));
      elementosRef.on('value', (snapshot) => {
+      elminarEsterilizados();
        const docs = snapshot.val();
        console.log(docs)
        for (const key in docs) {
@@ -111,6 +123,15 @@
        });
    }
    
+   function elminarEsterilizados(){
+    const tbody = document.getElementById('tbodyEsterilizado');
+
+    // Elimina todas las filas del tbody
+    while (tbody.firstChild) {
+    tbody.removeChild(tbody.firstChild);
+    }
+   }
+
    ObtenerDocumentos3();
 
  /*
