@@ -13,8 +13,9 @@ function generarQR() {
     // Limpiar el contenido del div
     divCodigoQR.innerHTML = "";
     // Generar el código QR
+    console.log(texto);
     var qrcode = new QRCode(divCodigoQR, {
-      text: data,
+      text: texto,
       width: 128,
       height: 128,
     });

@@ -1,40 +1,4 @@
-//----------------------------------------------------------------
-var RefNuevoElemento = database.ref('/ProyectoSistemasDigitales/Elementos/Nuevo Elemento');
-    RefNuevoElemento.on('value', function(snapshot) {
-    var IDdelNuevoElemento = snapshot.val();                             //obtenemos La id del nuevo elemento tipo string con ""
-    var SubStringIDdelNuevoELmento=IDdelNuevoElemento.substring(1, 6);   //obtenemos La id del nuevo elemento tipo string sin ""
-    var ElementoEnEspera = database.ref("/ProyectoSistemasDigitales/Lista de Espera/"+SubStringIDdelNuevoELmento+"/Instrumento");
-    ElementoEnEspera.on('value', function(snapshot) {
-    tipodeElemento = snapshot.val();            //obtenemos el tipo de elemento que es, ejemplo: bisturi , pinza, etc.
-    var dataContainer = document.getElementById('f1c1');//establecemos la celda donde vamos a mostrar el dato guardado en firebase
-    dataContainer.innerHTML = "ID: "+SubStringIDdelNuevoELmento+", Instrumento: "+ tipodeElemento;
-  });
-  });
-  //----------------------------------------------------------------
-  var RefElementoHorno = database.ref('/ProyectoSistemasDigitales/Elementos/Elemento En Horno');
-    RefElementoHorno.on('value', function(snapshot) {
-    var IdElementoHorno = snapshot.val();               //obtenemos La id del elemento en horno tipo string
-    var ElementoEnHorno = database.ref("/ProyectoSistemasDigitales/En Proceso/"+IdElementoHorno+"/Instrumento");
-    ElementoEnHorno.on('value', function(snapshot) {
-    tipodeElemento = snapshot.val();            //obtenemos el tipo de elemento que es, ejemplo: bisturi , pinza, etc.
-    var dataContainer = document.getElementById('f1c2');//establecemos la celda donde vamos a mostrar el dato guardado en firebase
-    dataContainer.innerHTML = "ID: "+IdElementoHorno+", Instrumento: "+ tipodeElemento;
-  });
-  });
-  //----------------------------------------------------------------
-  var RefElementoEsterilizado = database.ref('/ProyectoSistemasDigitales/Elementos/Elemento Esterilizado Nuevo');
-  RefElementoEsterilizado.on('value', function(snapshot) {
-    var IdElementoEsterilizado = snapshot.val();               //obtenemos La id del elemento en horno tipo string
-    var ElementoEsterilizado = database.ref("/ProyectoSistemasDigitales/Esterilizado/"+IdElementoEsterilizado+"/Instrumento");
-    ElementoEsterilizado.on('value', function(snapshot) {
-    tipodeElemento = snapshot.val();            //obtenemos el tipo de elemento que es, ejemplo: bisturi , pinza, etc.
-    var dataContainer = document.getElementById('f1c3');//establecemos la celda donde vamos a mostrar el dato guardado en firebase
-    dataContainer.innerHTML = "ID: "+IdElementoEsterilizado+", Instrumento: "+ tipodeElemento;
-  });
-  });
-
-  
-  function ObtenerDocumentos() {
+    function ObtenerDocumentos() {
     // var elementosRef = database.collection("ProyectoSistemasDigitales").doc("Elementos").get();
      var elementosRef = database.ref('/ProyectoSistemasDigitales/Lista de Espera')
    
@@ -75,35 +39,44 @@ var RefNuevoElemento = database.ref('/ProyectoSistemasDigitales/Elementos/Nuevo 
        const docs = snapshot.val();
        console.log(docs)
        for (const key in docs) {
-         var tblBody = document.getElementById("tbodyProceso");
-   
-         var hilera = document.createElement("tr");
-   
-         var celdaId = document.createElement("td");
+         borrarContenido();
+
          var textoId = document.createTextNode(key);
-         celdaId.appendChild(textoId);
 
          var instrumento = docs[key].Instrumento || "No hay instrumento"
          console.log(instrumento)
-         var celdaInstrumento = document.createElement("td");
+   
          var textoInstrumento = document.createTextNode(instrumento);
-         celdaInstrumento.appendChild(textoInstrumento);
 
          var tiempo = docs[key].Tiempo || "No hay Tiempo"
          console.log(instrumento)
-         var celdaTiempo = document.createElement("td");
-         var textoTiempo = document.createTextNode(tiempo);
-         celdaTiempo.appendChild(textoTiempo);
 
-         hilera.appendChild(celdaId);
-         hilera.appendChild(celdaInstrumento);
-         hilera.appendChild(celdaTiempo);
-         tblBody.appendChild(hilera);
+         var textoTiempo = document.createTextNode(tiempo);
+
+         columna1.appendChild(textoId);
+         columna2.appendChild(textoInstrumento);
+         columna3.appendChild(textoTiempo);
+         //tblBody.appendChild(hilera);
          
        }
        });
    }
    
+   function borrarContenido() {
+    var miDiv = document.getElementById("columna1");
+    while (miDiv.firstChild) {
+        miDiv.removeChild(miDiv.firstChild);
+    }
+    var miDiv = document.getElementById("columna2");
+    while (miDiv.firstChild) {
+        miDiv.removeChild(miDiv.firstChild);
+    }
+    var miDiv = document.getElementById("columna3");
+    while (miDiv.firstChild) {
+        miDiv.removeChild(miDiv.firstChild);
+    }
+  }
+
    ObtenerDocumentos2();
 
 
